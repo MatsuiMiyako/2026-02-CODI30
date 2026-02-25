@@ -22,18 +22,28 @@ for i in {1..10}; do
 done
 
 numbers=($num1 $num2 $num3 $num4 $num5 $num6 $num7 $num8 $num9 $num10)
-read -p "How do you want to sort the numbers? [ (a)scending / (d)escending / (k)ey / (q)uit ]: " order
-if [[ $order == a ]]; then
+read -p "How do you want to sort the numbers? [ (a)scending / (d)escending / (k)ey / (u)nique / (q)uit ]: " order
+flags='n'
+for (( i=0; i<${#order}; i++ )) do
+    if [[ "$order" == *"a"* && !("$flags" == *"n"*) ]]; then
+        : #Do nothing
+    elif [[ "$order" == *"d"* && !("$flags" == *"nr"*) ]]; then
+        flags+='r'
+    elif [[ "$order" == *"u"* && !("$flags" == *"u"*) ]]; then
+        flags+='u'    
+    elif [[ "$order" == *"k"* && !("$flags" == *"k"*) ]]; then
+        read -p "Enter the key number to sort by: " key
+        # remove n flag because its not working...
+        kflags+=' -k'
+        kflags+=$key
+    elif [[ "$order" == *"q"* ]]; then
+        echo "Exiting..."
+        exit 
+    fi
+done
 
-elif [[ $order == d ]]; then
+echo $flags
+echo $kflags
+sorted_numbers=($(printf '%s\n' "${numbers[@]}" | sort -$kflags | sort -$flags))
+echo "${sorted_numbers[@]}"
 
-elif [[ $order == k ]]; then
-    read -p "Enter the key number to sort by: " key
-elif [[ $order == q ]]; then
-    echo "You quit the sorting. Bye bye!"
-    exit
-    
-else
-    echo "Invalid sorting order. Please choose (a)scending, (d)escending, or (k)ey or (q)uit."
-    exit
-fi
