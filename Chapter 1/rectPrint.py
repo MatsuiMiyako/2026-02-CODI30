@@ -1,5 +1,4 @@
-print('Enter the width for the rectangle:')
-width = int(input('>'))
+width = int(input("Enter the width of for the rectangle: "))
 print('O' * width)
 print('O' * width)
 print('O' * width)

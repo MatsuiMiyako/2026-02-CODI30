@@ -1,13 +1,8 @@
-print('Enter the width for the rectangle:')
-width = int(input('>'))
-print('Enter the height for the rectangle:')
-height = int(input('>'))
+width = int(input("Enter the width for the rectangle: "))
+length = int(input("Enter the length for the rectangle: "))
 
-area = width * height
-perimeter = 2 * (width + height)
-print()
+Area = width * length
+Perimeter = 2 * (length + width)
 
-print('Area of the rectangle:')
-print(area)
-print('Perimeter of the rectangle:')
-print(perimeter)
+print("Area of the rectangle: " + str(Area))
+print("Perimeter of the rectangle: " + str(Perimeter))
