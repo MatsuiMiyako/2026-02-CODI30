@@ -1,11 +1,9 @@
-print('Enter an integer:')
-number = int(input())
-
-if number % 15 == 0:
-    print('Fizz Buzz')
+number = int(input("Please enter a integer: "))
+if number % 3 == 0 and number % 5 == 0:
+    print("Fizz Buzz")
 elif number % 3 == 0:
-    print('Fizz')
+    print("Fizz")
 elif number % 5 == 0:
-    print('Buzz')
+    print("Buzz")
 else:
     print(number)

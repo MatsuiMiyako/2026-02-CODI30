@@ -3,7 +3,7 @@ scale = input()
 print('Enter the number of degrees:')
 degrees = int(input())
 if scale == 'C':
-    if degrees >= 16 and degrees <=38:
+    if degrees >= 16 and degrees <= 38:
         print('Safe')
     else:
         print('Dangerous')
