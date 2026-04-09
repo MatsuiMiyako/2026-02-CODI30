@@ -7,11 +7,14 @@ def collatz(number):
 
 
 print("Enter number: ")
-currentNumber = int(input())
-numberList = ""
+try:
+    currentNumber = int(input())
+    numberList = ""
 
-while currentNumber != 1:
-    currentNumber = collatz(currentNumber)
-    numberList += str(currentNumber) + ' '
+    while currentNumber != 1:
+        currentNumber = collatz(currentNumber)
+        numberList += str(currentNumber) + ' '
 
-print(numberList, sep=' ')
+    print(numberList, sep=' ')
+except:
+    print("Please enter a integer.")
